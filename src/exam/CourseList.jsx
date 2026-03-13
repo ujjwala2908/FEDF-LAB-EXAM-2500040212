@@ -4,26 +4,25 @@ function CourseList(){
 
   const [courses, setCourses] = useState([]);
 
-  useEffect(()=>{
-
+  useEffect(() => {
     const data = JSON.parse(localStorage.getItem("courses")) || [];
     setCourses(data);
-
-  },[]);
+  }, []);
 
   return(
     <div>
 
-      <h2>Registered Courses</h2>
+      <h2>Courses Offered</h2>
 
       <table border="1">
+
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Instructor</th>
+            <th>Course Name</th>
+            <th>Course ID</th>
             <th>Email</th>
-            <th>Course</th>
-            <th>Phone</th>
-            <th>Semester</th>
+            <th>Outcomes</th>
           </tr>
         </thead>
 
@@ -32,10 +31,10 @@ function CourseList(){
           {courses.map((c,index)=>(
             <tr key={index}>
               <td>{c.name}</td>
-              <td>{c.email}</td>
               <td>{c.course}</td>
-              <td>{c.phone}</td>
-              <td>{c.semester}</td>
+              <td>{c.id}</td>
+              <td>{c.email}</td>
+              <td>{c.outcomes}</td>
             </tr>
           ))}
 

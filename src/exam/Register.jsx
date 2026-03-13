@@ -4,10 +4,10 @@ function Register() {
 
   const [form, setForm] = useState({
     name: "",
-    email: "",
     course: "",
-    phone: "",
-    semester: ""
+    id: "",
+    email: "",
+    outcomes: ""
   });
 
   const handleChange = (e) => {
@@ -17,54 +17,67 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // get existing data
-    const existing = JSON.parse(localStorage.getItem("courses")) || [];
+    const existingCourses =
+      JSON.parse(localStorage.getItem("courses")) || [];
 
-    // add new data
-    const updated = [...existing, form];
+    const updatedCourses = [...existingCourses, form];
 
-    // store again
-    localStorage.setItem("courses", JSON.stringify(updated));
+    localStorage.setItem("courses", JSON.stringify(updatedCourses));
 
-    alert("Course Registered Successfully");
+    alert("Course Added Successfully");
 
     setForm({
       name: "",
-      email: "",
       course: "",
-      phone: "",
-      semester: ""
+      id: "",
+      email: "",
+      outcomes: ""
     });
   };
 
   return (
     <div>
 
-      <h2>Course Registration</h2>
+      <h2>Want to Offer a Course? Register Here </h2>
 
       <form onSubmit={handleSubmit}>
 
-        <input name="name" placeholder="Name"
-        value={form.name}
-        onChange={handleChange} /><br/><br/>
+        <input
+          name="name"
+          placeholder="Instructor Name"
+          value={form.name}
+          onChange={handleChange}
+        /><br/><br/>
 
-        <input name="email" placeholder="Email"
-        value={form.email}
-        onChange={handleChange} /><br/><br/>
+        <input
+          name="course"
+          placeholder="Course Name"
+          value={form.course}
+          onChange={handleChange}
+        /><br/><br/>
 
-        <input name="course" placeholder="Course"
-        value={form.course}
-        onChange={handleChange} /><br/><br/>
+        <input
+          name="id"
+          placeholder="Course ID"
+          value={form.id}
+          onChange={handleChange}
+        /><br/><br/>
 
-        <input name="phone" placeholder="Phone"
-        value={form.phone}
-        onChange={handleChange} /><br/><br/>
+        <input
+          name="email"
+          placeholder="Email"
+          value={form.email}
+          onChange={handleChange}
+        /><br/><br/>
 
-        <input name="semester" placeholder="Semester"
-        value={form.semester}
-        onChange={handleChange} /><br/><br/>
+        <input
+          name="outcomes"
+          placeholder="Course Outcomes"
+          value={form.outcomes}
+          onChange={handleChange}
+        /><br/><br/>
 
-        <button type="submit">Register</button>
+        <button type="submit">Add Course</button>
 
       </form>
 
