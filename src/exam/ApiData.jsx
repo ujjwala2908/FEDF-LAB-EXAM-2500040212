@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 function ApiData(){
 
@@ -6,9 +7,13 @@ function ApiData(){
 
   useEffect(()=>{
 
-    fetch("https://dummy-json.mock.beeceptor.com/posts")
-      .then(res => res.json())
-      .then(data => setPosts(data));
+    axios.get("https://dummy-json.mock.beeceptor.com/posts")
+      .then(res => {
+        setPosts(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
 
   },[]);
 

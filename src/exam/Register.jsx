@@ -11,7 +11,7 @@ function Register() {
   });
 
   const handleChange = (e) => {
-    setForm({...form, [e.target.name]: e.target.value});
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
@@ -38,7 +38,7 @@ function Register() {
   return (
     <div>
 
-      <h2>Want to Offer a Course? Register Here </h2>
+      <h2>Offer a Course</h2>
 
       <form onSubmit={handleSubmit}>
 
@@ -47,6 +47,7 @@ function Register() {
           placeholder="Instructor Name"
           value={form.name}
           onChange={handleChange}
+          required
         /><br/><br/>
 
         <input
@@ -54,6 +55,7 @@ function Register() {
           placeholder="Course Name"
           value={form.course}
           onChange={handleChange}
+          required
         /><br/><br/>
 
         <input
@@ -61,13 +63,16 @@ function Register() {
           placeholder="Course ID"
           value={form.id}
           onChange={handleChange}
+          required
         /><br/><br/>
 
         <input
+          type="email"
           name="email"
           placeholder="Email"
           value={form.email}
           onChange={handleChange}
+          required
         /><br/><br/>
 
         <input
@@ -75,6 +80,7 @@ function Register() {
           placeholder="Course Outcomes"
           value={form.outcomes}
           onChange={handleChange}
+          required
         /><br/><br/>
 
         <button type="submit">Add Course</button>
